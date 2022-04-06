@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*2 Unidades de Medida
+
+EM
+REM
+
+*/
+
+/* 1em = 16px . Aunque no es siempre asi. Hace Referencia al fontsize que se declare en el body(o contenedor padre). Si el body es 15px entonces 1em es 15px, 2em serian 30px*/
+
+body{
+    background-color: #f8ced8;
+
+}
+
+header h1{
+    text-align: center;
+}
+
+nav ul {
+    display: flex;    
+    justify-content: center;
+}
+nav ul li{
+    list-style: none;
+    margin: 1rem; /*1 rem son 16px*/
+    background-color: whitesmoke;
+    padding: 0.3rem;
+    border-radius: 1rem;    
+}
+
+.mainNosotros{
+    height: 80vh; 
+    display: grid;
+    grid-template-areas: "mainP mainP"
+                        "imagen1 imagen2"
+                        "imagen3 imagen4"
+                        "parrafo parrafo";
+    justify-content: center;
+}
+
+.sectionNosotros{
+    display: none; /*La oculto en la mobile First*/
+}
+
+.mainP{
+    grid-area: mainP;
+    text-align: center;
+}
+.imagen1{
+    grid-area: imagen1;
+}
+.imagen2{
+    grid-area: imagen2;
+}
+.imagen3{
+    grid-area: imagen3;
+}
+.imagen4{
+    grid-area: imagen4;
+}
+.parrafo{
+    grid-area: parrafo;
+    text-align: center;
+}
+
+footer p{
+    text-align: center;
+}
+
+/*Media queries*/
+
+@media only screen and (min-width:600px){ /*cuando abra una ventana y pantalla tenga como minimo 600px,tiene que hacer lo que esta entre llaves - aplico que cambios quiero que que surjan */
+    /*
+    body{
+        
+        background-color: tomato;  para ver si lo aplica y recien ahi empiezo a trabajar
+    }
+    */
+
+    .mainNosotros{
+        height: 80vh; 
+        display: grid;
+        grid-template-areas: "mainP mainP mainP mainP"
+                             "img img img img"
+                            "imagen1 imagen2 imagen3 imagen4"
+                            "parrafo parrafo parrafo parrafo";
+        justify-content: center;
+    }
+    .sectionNosotros{
+        display: block; /*muestro elemento que se oculto*/
+        grid-area: img; /*tiene que ser el mismo declarado en el grid-template-area*/
+        display: flex;
+        justify-content: center;
+    }
+    .mainP, .parrafo{ /*ambas clases tienen las mismas propiedades*/
+        font-size: 1.3rem; /*agrando la letra*/
+    }
+    .imagen1, .imagen2, .imagen3, .imagen4{
+        padding: 1rem;
+    }
+    main div img{
+        width: 60%
+    }
+
+}
+
+@media only screen and (min-width:1024px){
+    .mainNosotros{
+        height: 80vh; 
+        display: grid;
+        grid-template-areas: "mainP mainP img img"
+                            "imagen1 imagen2 imagen3 imagen4"
+                            "parrafo parrafo parrafo parrafo";
+        justify-content: center;
+
+        align-items: center;
+    }
+    .imagen1, .imagen2, .imagen3, .imagen4{
+        padding: 1rem;
+    }
+    main div img{
+        width: 70%
+    }
+}
